@@ -1,0 +1,42 @@
+<!-- <link rel="stylesheet" href="navbar.component.css"> -->
+<nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <img src="../../../assets/1000_F_224128507_Ta912sWFjvwUvTWG2nvMpQgexO24Tp8n.jpg" class="logo">
+      <a class="navbar-brand" routerLink="/" style="color :white; font-family:'Franklin Gothic Medium'; font-size: 30px; color:rgb(241, 218, 8);">Drop Along</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav, nav justify-content-end">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" [routerLink]="['/addrider']" style="color :white; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">User</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" routerLink="updaterider" style="color :white; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Edit</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color :white; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">
+            Trip
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" routerLink="addride" style="color :#480655; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Add Booking</a></li>
+              <li><a class="dropdown-item" routerLink="updateRide" style="color :#480655; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Update Booking</a></li>
+            </ul>
+          </li>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color :white; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">
+              Billing
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" routerLink="bill" style="color :#480655; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Bill</a></li>
+              <li><a class="dropdown-item" routerLink="monthlyBill" style="color :#480655; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; ">Monthly Bill</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="smiles" style="color :white; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Smile's</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>

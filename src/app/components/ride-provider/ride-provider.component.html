@@ -1,0 +1,135 @@
+<div class="container my-5">
+    <!-- <img src="../../../assets/download.jfif" width="100%"> -->
+    <div class="shadow-lg p-3 mb-5 bg-body-tertiary rounded">
+        <div class ="row">
+            <div class ="col-md-6 mx-auto" style="color: #480655;">
+                <h1 class="mb-3, text-center" style="color: #480655;">Register Yourself</h1>
+                <br/>
+                    <div class="row">
+                        <div>
+                            <form #form="ngForm" (ngSubmit)="registernewRider()"> 
+
+                                <div class="mb-3">
+                                    <label for="birthdate" class="form-label">Date of Birth :</label>
+                                    <input type="date" class="form-control" id="birthdate" required
+                                    [class.is-invalid] ="birthdate.touched && birthdate.invalid" #birthdate="ngModel"
+                                    name="birthdate" [(ngModel)]="registerRider.birthdate">
+                                </div>
+                                <div class="alert alert-danger" *ngIf="birthdate.touched && birthdate.invalid">
+                                    <div *ngIf="birthdate.errors && birthdate.errors['required']">
+                                        Date of Birth is required
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="adharcard" class="form-label">Aadhar Card :</label>
+                                    <input type="text" class="form-control" id="adharcard" required minlength="12"
+                                    [class.is-invalid] ="adharcard.touched && adharcard.invalid" #adharcard="ngModel"
+                                    name="adharcard" [(ngModel)]="registerRider.adharcard">
+                                </div>
+                                <div class="alert alert-danger" *ngIf="adharcard.touched && adharcard.invalid">
+                                    <div *ngIf="adharcard.errors && adharcard.errors['required']">
+                                        Adharcard No. is required
+                                    </div>
+                                    <div *ngIf="adharcard.errors && adharcard.errors['minlength']">
+                                        Should be minimum 12 digits
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="emailId" class="form-label">Email id :</label>
+                                    <input type="emailId" class="form-control" id="emailId" required
+                                    [class.is-invalid] ="emailId.touched && emailId.invalid" #emailId="ngModel" pattern="[a-zA-Z0-9._%+-]+@cognizant\.com$"
+                                    name="emailId" [(ngModel)]="registerRider.emailId" >
+                                </div>
+                                <div class="alert alert-danger" *ngIf="emailId.touched && emailId.invalid">
+                                    <div *ngIf="emailId.errors && emailId.errors['required']">
+                                        Email Id is required
+                                    </div>
+                                    <div *ngIf="emailId.errors && emailId.errors['pattern']">
+                                        Invalid Email Id
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="phone" class="form-label">Phone no. :</label>
+                                    <input type="tel" class="form-control" id="phone" required minlength="10" maxlength="10"
+                                    [class.is-invalid] ="phone.touched && phone.invalid" #phone="ngModel"
+                                    name="phone" [(ngModel)]="registerRider.phone" >
+                                </div>
+                                <div class="alert alert-danger" *ngIf="phone.touched && phone.invalid">
+                                    <div *ngIf="phone.errors && phone.errors['required']">
+                                        Phone no. is required
+                                    </div>
+                                    <div *ngIf="phone.errors && phone.errors['minlength']">
+                                        Should be minimum 10 digits
+                                    </div>
+                                </div>
+                                <div class="mb-3, row">
+                                    <div class="col">
+                                        <label for="firstName" class="form-label">First Name :</label>
+                                        <input type="text" class="form-control" id="firstName" required minlength="3"
+                                        [class.is-invalid] ="firstName.touched && firstName.invalid" #firstName="ngModel"
+                                        name="firstName" [(ngModel)]="registerRider.firstName" >
+                                    </div>
+                                    <div class="alert alert-danger" *ngIf=" firstName.touched && firstName.invalid">
+                                        <div *ngIf="firstName.errors && firstName.errors['required']">
+                                            First Name is required
+                                        </div>
+                                        <div *ngIf="firstName.errors && firstName.errors['minlength']">
+                                            Should be minimum 3 characters
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <label for="lastName" class="form-label">Last Name :</label>
+                                        <input type="text" class="form-control" id="lastName" required minlength="3"
+                                        [class.is-invalid] ="ln.touched && ln.invalid" #ln="ngModel"
+                                        name="lastName" [(ngModel)]="registerRider.lastName">
+                                    </div>
+                                    <div class="alert alert-danger" *ngIf="ln.touched && ln.invalid">
+                                        <div *ngIf="ln.errors && ln.errors['required']">
+                                            Last Name is required
+                                        </div>
+                                        <div *ngIf="ln.errors && ln.errors['minlength']">
+                                            Should be minimum 3 characters
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label for="dlNo" class="form-label">Driving License No. :</label>
+                                    <input type="text" class="form-control" id="dlNo" required minlength="16" pattern="[z0-9]{4}-[z0-9]{3}-[z0-9]{3}-[z0-9]{3}"
+                                    [class.is-invalid] ="dln.touched && dln.invalid" #dln="ngModel"
+                                    name="dlNo" [(ngModel)]="registerRider.dlNo" >
+                                </div>
+                                <div class="alert alert-danger" *ngIf="dln.touched && dln.invalid">
+                                    <div *ngIf="dln.errors && dln.errors['required']">
+                                        Driving License is required
+                                    </div>
+                                    <div *ngIf="dln.errors && dln.errors['minlength']">
+                                        Should be minimum 16 digits
+                                    </div>
+                                    <div *ngIf="dln.errors && dln.errors['pattern']">
+                                        Invalid Driving License No.
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="validUpto" class="form-label">Valid Upto :</label>
+                                    <input type="date" class="form-control" id="validUpto" required
+                                    [class.is-invalid] ="vpt.touched && vpt.invalid" #vpt="ngModel"
+                                    name="validUpto" [(ngModel)]="registerRider.validUpto" >
+                                </div>
+                                <div class="alert alert-danger" *ngIf="vpt.touched && vpt.invalid">
+                                    <div *ngIf="vpt.errors && vpt.errors['required']">
+                                        Valid date is required
+                                    </div>
+                                </div>
+                                <br/>
+                                <div class="d-grid">
+                                    <button type="submit" [class.disabled]="form.form.invalid" class="btn btn-primary" style="background-color:#480655; border-color:#480655;">Submit</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+    </div>
+</div> 
+ 

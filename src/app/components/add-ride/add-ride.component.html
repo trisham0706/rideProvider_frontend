@@ -1,0 +1,137 @@
+<div class="container my-5">
+    <div class="shadow-lg p-3 mb-5 bg-body-tertiary rounded">
+        <div class ="row">
+            <div class ="col-md-6 mx-auto" style="color: #480655;">
+            <h1 class="mb-3, text-center" style="color: #480655;">Add a New Booking</h1>
+            <br/>
+            <div class="row">
+                <div>
+
+                    <form #form="ngForm" (ngSubmit)="handleSubmit()">
+                        <div class="mb-3">
+                            <label for="tripId" class="form-label">Trip Id :</label>
+                            <input type="text" class="form-control" id="tripId" required
+                            [class.is-invalid] ="tripid.touched && tripid.invalid" #tripid="ngModel"
+                            name="tripId" ngModel>
+                        </div>
+                        <div class="alert alert-danger" *ngIf="tripid.touched && tripid.invalid">
+                            <div *ngIf="tripid.errors && tripid.errors['required']">
+                                Trip Id is required
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                        <label for="creatorUserId" class="form-label">Creator User Id :</label>
+                        <input type="text" class="form-control" id="creatorUserId" required
+                        [class.is-invalid] = "cuid.touched && cuid.invalid"  #cuid="ngModel"
+                        name="creatorUserId" ngModel>
+                        </div>
+                        <div class="alert alert-danger" *ngIf="cuid.touched && cuid.invalid">
+                            <div *ngIf="cuid.errors && cuid.errors['required']">
+                                User Id is required
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="vehicleId" class="form-label">Vehicle Id :</label>
+                            <input type="text" class="form-control" id="vehicleId" required #vid="ngModel"
+                            [class.is-invalid] = "vid.touched && vid.invalid"
+                            name="vehicleId" ngModel>
+                        </div>
+                        <div class="alert alert-danger" *ngIf="vid.touched && vid.invalid">
+                            <div *ngIf="vid.errors && vid.errors['required']">
+                                Vehicle Id is required
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="rideDate" class="form-label">Ride Date :</label>
+                            <input type="date" class="form-control" id="rideDate" required #rdate="ngModel"
+                            [class.is-invalid] = "rdate.touched && rdate.invalid"
+                            name="rideDate" ngModel>
+                        </div>
+                        <div class="alert alert-danger" *ngIf="rdate.touched && rdate.invalid">
+                            <div *ngIf="rdate.errors && rdate.errors['required']">
+                                Ride Date is required
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="rideTime" class="form-label">Ride Time :</label>
+                            <input type="datetime" class="form-control" id="rideTime" required #rtime="ngModel"
+                            [class.is-invalid] = "rtime.touched && rtime.invalid"
+                            name="rideTime" ngModel>
+                        </div>
+                        <div class="alert alert-danger" *ngIf="rtime.touched && rtime.invalid">
+                            <div *ngIf="rtime.errors && rtime.errors['required']">
+                                Ride Time is required
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="rideStatus" class="form-label">Ride Status :</label>
+                            <input type="text" class="form-control" id="rideStatus" required #rstat="ngModel" 
+                            [class.is-invalid] = "rstat.touched && rstat.invalid"
+                            name="rideStatus" ngModel>
+                        </div>
+                        <div class="alert alert-danger" *ngIf="rstat.touched && rstat.invalid">
+                            <div *ngIf="rstat.errors && rstat.errors['required']">
+                                Ride Status is required
+                            </div>
+                        </div>
+                        <div class="mb-3, row">
+                            <div class="col">
+                                <label for="noOfSeat" class="form-label">No. of Seat's :</label>
+                                <input type="number" class="form-control" id="noOfSeat" #nseats="ngModel" required min="1" [class.is-invalid] ="nseats.invalid && nseats.touched"
+                                name="noOfSeat" ngModel>
+                            </div>
+                            <div class="alert alert-danger" *ngIf="nseats.touched && nseats.invalid">
+                                <div *ngIf="nseats.errors && nseats.errors['required']">
+                                    No. of seats is required
+                                </div>
+                                <div *ngIf="nseats.errors && nseats.errors['min']">
+                                    Seats should not be less than 1 or negative
+                                </div>
+                            </div>
+                            <div class="col">
+                                <label for="seatsFilled" class="form-label">Seats Filled :</label>
+                                <input type="number" class="form-control" id="seatsFilled" required #sfill="ngModel"
+                                [class.is-invalid] = "sfill.touched && sfill.invalid"
+                                name="seatsFilled" ngModel>
+                            </div> 
+                            <div class="alert alert-danger" *ngIf="sfill.touched && sfill.invalid">
+                                <div *ngIf="sfill.errors && sfill.errors['required']">
+                                    No. of Seats Filled is required
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="fromLoc" class="form-label">From Location :</label>
+                            <input type="text" class="form-control" id="fromLoc" required #floc="ngModel"
+                            [class.is-invalid] = "floc.touched && floc.invalid"
+                            name="fromLoc" ngModel>
+                        </div>
+                        <div class="alert alert-danger" *ngIf="floc.touched && floc.invalid">
+                            <div *ngIf="floc.errors && floc.errors['required']">
+                                Location is required
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="toLoc" class="form-label">To Location :</label>
+                            <input type="text" class="form-control" id="toLoc" required #tloc="ngModel"
+                            [class.is-invalid] = "tloc.touched && tloc.invalid"
+                            name="toLoc" ngModel>
+                        </div>
+                        <div class="alert alert-danger" *ngIf="tloc.touched && tloc.invalid">
+                            <div *ngIf="tloc.errors && tloc.errors['required']">
+                                Location is required
+                            </div>
+                        </div>
+                        <br/>
+                        <div class="d-grid">
+                            <button type="submit" [class.disabled]="form.form.invalid" class="btn btn-primary" style="background-color:#480655; border-color:#480655;">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</div>
+
+

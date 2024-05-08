@@ -1,0 +1,48 @@
+<div class="container my-5">
+    <div class="shadow p-3 mb-5 bg-body-tertiary rounded">
+    <h1 class="mb-3, text-center" style="color: #480655;">Bill Details</h1>
+    <br/>
+    <div class="row justify-content-center">
+        <div class="col-4" style="color: #480655;">
+            <form #form="ngForm" (ngSubmit)="onSubmit()">
+                <div class="mb-3">
+                    <label for="tripId" class="form-label" style="color: #480655">Trip Id :</label>
+                    <input type="string" class="form-control" id="tripId" #tripid="ngModel" required [class.is-invalid]="tripid.touched && tripid.invalid"
+                    name="rideId" ngModel>
+                    <div class="alert alert-danger" *ngIf="tripid.touched && tripid.invalid">
+                        <div *ngIf="tripid.errors && tripid.errors['required']">
+                            Trip Id is required
+                        </div>
+                    </div>
+                </div>
+                <div class="d-grid">
+                  <button type="submit" [class.disabled]="form.form.invalid" class="btn btn-primary" style="background-color:#480655; border-color:#480655;">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    </div>
+    <br/>
+    <table class="table table-bordered border-black">
+        <thead>
+          <tr>
+            <th scope="col" style="color: #480655;">Ride Id</th>
+            <th scope="col" style="color: #480655;">Month</th>
+            <th scope="col" style="color: #480655;">Number of Kilometer</th>
+            <th scope="col" style="color: #480655;">TotalBill</th>
+            <th scope="col" style="color: #480655;">Number of Occupants</th>
+            <th scope="col" style="color: #480655;">Bill Per Person</th>
+          </tr>
+        </thead>
+        <tbody *ngIf="bill!==undefined">
+            <tr *ngFor="let b of bill">
+                <td>{{b.rideId}}</td>
+                <td>{{b.month}}</td>
+                <td>{{b.noOfKm}}</td>
+                <td>{{b.totalbill}}</td>
+                <td>{{b.noOfOccupants}}</td>
+                <td>{{b.totalbill/b.noOfOccupants}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

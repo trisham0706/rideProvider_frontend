@@ -1,0 +1,84 @@
+<div class="container my-5">
+    <div class="shadow p-3 mb-5 bg-body-tertiary rounded">
+    <div class ="row">
+        <div class ="col-md-6 mx-auto" style="color: #480655;">
+            <h1 class="mb-3, text-center" style="color: #480655;">Edit Booking Details</h1>
+            <br/>
+            <div class="row g-3 align-items-center">
+                <div class="col-auto">
+                    <label for="tripId" class="form-label" style="color: #480655;">Trip Id :</label>
+                </div>
+                <div class="col-auto">
+                    <input type="text" id="tripId" name="tripId" class="form-control"[(ngModel)]="tripId">
+                </div>
+                <div class="col-auto">
+                <span id="passwordHelpInline" class="form-text">
+                    <button type="submit"class="btn btn-primary" (click)="onClick()" style="background-color:#480655; border-color:#480655;">Fetch Details</button>
+                </span>
+                </div>
+            </div>
+            <br/>
+            <br/>
+            <div class="row">
+                <div>
+                    <form #form="ngForm" (ngSubmit)="onSubmit()">
+                        <div class="mb-3">
+                        <label for="creatorUserId" class="form-label">Creator User Id :</label>
+                        <input type="string" class="form-control" id="creatorUserId"
+                        name="creatorUserId" ngModel>
+                        </div>
+                        <div class="mb-3">
+                            <label for="vehicleId" class="form-label">Vehicle Id :</label>
+                            <input type="string" class="form-control" id="vehicleId"
+                            name="vehicleId" ngModel>
+                        </div>
+                        <div class="mb-3">
+                            <label for="rideDate" class="form-label">Ride Date :</label>
+                            <input type="date" class="form-control" id="rideDate"
+                            name="rideDate" ngModel>
+                        </div>
+                        <div class="mb-3">
+                            <label for="rideTime" class="form-label">Ride Time :</label>
+                            <input type="time" class="form-control" id="rideTime"
+                            name="rideTime" ngModel>
+                        </div>
+                        <div class="mb-3">
+                            <label for="rideStatus" class="form-label">Ride Status :</label>
+                            <input type="string" class="form-control" id="rideStatus"
+                            name="rideStatus" ngModel>
+                        </div>
+                        <div class="mb-3, row">
+                            <div class="col">
+                                <label for="noOfSeat" class="form-label">No. of Seat's :</label>
+                                <input type="number" class="form-control" id="noOfSeat"
+                                name="noOfSeat" ngModel>
+                            </div>
+                            <div class="col">
+                                <label for="seatsFilled" class="form-label">Seats Filled :</label>
+                                <input type="number" class="form-control" id="seatsFilled"
+                                name="seatsFilled" ngModel>
+                            </div>          
+                        </div>
+                        <div class="mb-3">
+                            <label for="fromLoc" class="form-label">From Location :</label>
+                            <input type="string" class="form-control" id="fromLoc"
+                            name="fromLoc" ngModel>
+                        </div>
+                        <div class="mb-3">
+                            <label for="toLoc" class="form-label">To Location :</label>
+                            <input type="string" class="form-control" id="toLoc"
+                            name="toLoc" ngModel>
+                        </div>
+                        <br/>
+                        <div class="d-grid">
+                            <button type="submit"class="btn btn-primary" style="background-color:#480655; border-color:#480655;">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</div>
+
+

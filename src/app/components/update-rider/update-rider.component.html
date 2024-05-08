@@ -1,0 +1,56 @@
+<div class="container my-5">
+    <div class="shadow p-3 mb-5 bg-body-tertiary rounded">
+    <div class ="col-md-6 mx-auto" style="color: #480655;">
+    <h1 class="mb-3, text-center" style="color: #480655;">Update</h1>
+    <br/>
+    <div class="row g-4 align-items-center">
+        <div class="col-auto">
+            <label for="tripId" class="form-label">Trip Id :</label>
+        </div>
+        <div class="col-auto">
+            <input type="text" id="rpId" name="rpId" class="form-control" [(ngModel)]="rpId" required
+            #rpid="ngModel" [class.is-invalid]="rpid.touched && rpid.invalid">
+        </div>
+        <div class="alert alert-danger" *ngIf="rpid.touched && rpid.invalid">
+            <div *ngIf="rpid.errors && rpid.errors['required']">
+                Trip Id is required
+            </div>
+        </div>
+        <div class="col-auto">
+          <span id="passwordHelpInline" class="form-text">
+            <button type="submit" class="btn btn-primary" style="background-color:#480655; border-color:#480655;" (click)="onClick()">Submit</button>
+          </span>
+        </div>
+      </div>
+    <br/>
+    <br/>
+    <div class="row">
+        <div>
+            <form #form="ngForm" (ngSubmit)="onSubmit()" novalidate> 
+
+                <div class="mb-3">
+                    <label for="role" class="form-label">Status:</label>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="status" id="rg" value="Registered" ngModel>
+                        <label class="form-check-label" for="rg" >
+                          Registered
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="status" id="ug" value="Unregistered" ngModel >
+                        <label class="form-check-label" for="ug">
+                        Un-Registered
+                        </label>
+                    </div>
+                </div>
+                <br/>
+                <div class="d-grid">
+                    <button type="submit" class="btn btn-primary" style="background-color:#480655; border-color:#480655;">Submit</button>
+                </div>
+              </form>
+        </div>
+    </div>
+    </div>
+    </div>
+</div> 
+ 

@@ -1,0 +1,44 @@
+<div class="container my-5">
+    <div class="shadow p-3 mb-5 bg-body-tertiary rounded">
+    <h1 class="mb-3, text-center" style="color: #480655;">Monthly Bill</h1>
+    <br/>
+    <div class="row justify-content-center">
+        <div class="col-4">
+            <form #form="ngForm" (ngSubmit)="onSubmit()">
+                <div class="mb-3">
+                    <label for="month" class="form-label">Month :</label>
+                    <input type="number" class="form-control" id="month" #month="ngModel" required [class.is-invalid]="month.touched && month.invalid"
+                    name="month" ngModel>
+                </div>
+                <div class="alert alert-danger" *ngIf="month.touched && month.invalid">
+                    <div *ngIf="month.errors && month.errors['required']">
+                        Month is required
+                    </div>
+                </div>
+                <div class="d-grid">
+                  <button type="submit" [class.disabled]="form.form.invalid" class="btn btn-primary" style="background-color:#480655; border-color:#480655;">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    </div>
+    <br/>
+    <table class="table table-bordered border-black">
+        <thead>
+          <tr>
+            <th scope="col" style="color: #480655;">Month</th>
+            <th scope="col" style="color: #480655;">Number of Kilometer</th>
+            <th scope="col" style="color: #480655;">TotalBill</th>
+            <th scope="col" style="color: #480655;">Number of Occupants</th>
+          </tr>
+        </thead>
+        <tbody *ngIf="mbill!==undefined">
+            <tr>
+                <td>{{mbill.month}}</td>
+                <td>{{mbill.noOfKm}}</td>
+                <td>{{mbill.totalbill}}</td>
+                <td>{{mbill.noOfOccupants}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
